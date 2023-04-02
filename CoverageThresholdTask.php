@@ -1,4 +1,5 @@
 <?php
+
 /**
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -26,7 +27,7 @@ use Phing\Io\File;
 use Phing\Type\Excludes;
 use Phing\Util\Properties;
 use Phing\Util\StringHelper;
-use Phing\Task\Ext\PHPUnitUtil;
+use Phing\Task\Ext\PhpUnit\PHPUnitUtil;
 
 /**
  * Stops the build if any of the specified coverage threshold was not reached

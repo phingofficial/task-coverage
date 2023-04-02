@@ -1,4 +1,5 @@
 <?php
+
 /**
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -24,7 +25,7 @@ use Phing\Type\Element\ClasspathAware;
 use Phing\Exception\BuildException;
 use Phing\Io\File;
 use Phing\Util\Properties;
-use Phing\Task\Ext\PHPUnitUtil;
+use Phing\Task\Ext\PhpUnit\PHPUnitUtil;
 
 /**
  * Transforms information in a code coverage database to XML
@@ -240,14 +241,12 @@ class CoverageReportTask extends Task
 
             $source = file_get_contents($filename);
 
+            /** @phpstan-ignore-next-line */
             $geshi = new \GeSHi($source, 'php', $this->geshilanguagespath);
-
+            /** @phpstan-ignore-next-line */
             $geshi->enable_line_numbers(GESHI_NORMAL_LINE_NUMBERS);
-
             $geshi->enable_strict_mode(true);
-
             $geshi->enable_classes(true);
-
             $geshi->set_url_for_keyword_group(3, '');
 
             $html = $geshi->parse_code();
